@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.trivedi_dell.final_app_post_purchase.ap_activity"
+    android:background="@drawable/clouds_background2"
+  >
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="-206dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/play_button"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent" />
+
+
+
+</android.support.constraint.ConstraintLayout>
