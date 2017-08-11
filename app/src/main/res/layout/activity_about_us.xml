@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.trivedi_dell.final_app_post_purchase.about_us"
+    android:background="@drawable/blue_background">
+
+    <Button
+        android:id="@+id/subscribe_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subscribe Now"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="580dp" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:text="Post Purchase "
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/about_us_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Us "
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="169dp"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/content_text"
+        android:layout_width="323dp"
+        android:layout_height="276dp"
+        android:text="Disciption of the app"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="251dp" />
+</android.support.constraint.ConstraintLayout>

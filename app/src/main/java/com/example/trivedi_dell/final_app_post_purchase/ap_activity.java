@@ -1,12 +1,14 @@
 package com.example.trivedi_dell.final_app_post_purchase;
 
 import android.app.Activity;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.adobe.mobile.Config;
 import com.adobe.mobile.Target;
@@ -15,6 +17,8 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,7 +92,7 @@ public class ap_activity extends YouTubeBaseActivity {
 
 
         //create Image parameters
-        Map<String,Object> image_params = new HashMap<String, Object>();
+        final Map<String,Object> image_params = new HashMap<String, Object>();
         image_params.put("woman" , "profile.gender");
         image_params.put("male","profile.gender");
         image_params.put("football","profile.interest");
@@ -96,9 +100,41 @@ public class ap_activity extends YouTubeBaseActivity {
         image_params.put("fashion","profile.interest");
 
 
+        //recognize the image holder 1
+        final ImageView image_holder1 = (ImageView) findViewById(R.id.image_holder1) ;
         //create location request for the two imageViews
-        TargetLocationRequest image_request = Target.createRequest("image-1" , "default.png",image_params );
+        final TargetLocationRequest image_request = Target.createRequest("image-1" , "default.png",image_params );
+        Target.loadRequest(image_request, new Target.TargetCallback<String>() {
+            @Override
+            public void call(String image_url) {
+                final RequestCreator rq = Picasso.with(getApplicationContext()).load(image_url);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rq.into(image_holder1);
+                    }
+                });
+        final ImageView image_holder2 = (ImageView)  findViewById(R.id.image_holder2);
+                TargetLocationRequest image_request2 = Target.createRequest("image-2" , "default.png", image_params);
+                Target.loadRequest(image_request2, new Target.TargetCallback<String>() {
+                    @Override
+                    public void call(String image_url2) {
+                        final RequestCreator rq2 = Picasso.with(getApplicationContext()).load(image_url2);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                rq2.into(image_holder2);
+                            }
+                        });
+
+                    }
+                });
+
+                    }
+                });
+            }
+        }
 
 
-    }
-}
+
+

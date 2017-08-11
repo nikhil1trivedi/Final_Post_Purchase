@@ -27,6 +27,42 @@
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent" />
 
+    <ImageView
+        android:id="@+id/image_holder1"
+        android:layout_width="222dp"
+        android:layout_height="398dp"
+        app:layout_constraintBottom_toTopOf="@id/youtube_player_view"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:srcCompat="@drawable/serena_image"
+        tools:layout_editor_absoluteY="12dp"
+        android:layout_marginLeft="-411dp"
+        android:layout_marginBottom="-1dp" />
+
+    <ImageView
+        android:id="@+id/image_holder2"
+        android:layout_width="186dp"
+        android:layout_height="268dp"
+        app:layout_constraintBottom_toTopOf="@+id/youtube_player_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_holder1"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/sherman_image" />
+
+    <TextView
+        android:id="@+id/ap_text"
+        android:layout_width="186dp"
+        android:layout_height="144dp"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="serif"
+        android:text="Welcome to the    Jungle"
+        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+        android:textSize="33sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/image_holder2"
+        app:layout_constraintLeft_toRightOf="@+id/image_holder1"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.993" />
 
 
 </android.support.constraint.ConstraintLayout>

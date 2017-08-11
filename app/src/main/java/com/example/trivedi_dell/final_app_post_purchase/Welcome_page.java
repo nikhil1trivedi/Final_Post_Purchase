@@ -19,6 +19,8 @@ public class Welcome_page extends AppCompatActivity{
         setContentView(R.layout.activity_welcome_page);
 
         Button welcome_button = (Button) findViewById(R.id.automated_personalization);
+        final Button about_us = (Button) findViewById(R.id.about_us_button) ;
+        Button survey_button = (Button) findViewById(R.id.survey_button);
 
 
          welcome_button.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +30,18 @@ public class Welcome_page extends AppCompatActivity{
             }
 
 
+
         });
+
+
+        about_us.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Welcome_page.this , about_us.class));
+            }
+        });
+
+        
     }
 }
 

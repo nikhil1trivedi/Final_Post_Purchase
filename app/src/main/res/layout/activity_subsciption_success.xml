@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.trivedi_dell.final_app_post_purchase.subsciption_success">
+
+    <TextView
+        android:id="@+id/thank_you_string"
+        android:layout_width="277dp"
+        android:layout_height="382dp"
+        android:text="Thank You for your Subsciption!!!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/back_to_main_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to Main"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="505dp" />
+</android.support.constraint.ConstraintLayout>
