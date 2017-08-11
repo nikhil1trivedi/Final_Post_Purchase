@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.trivedi_dell.final_app_post_purchase.ap_activity"
-    android:background="@drawable/clouds_background2"
+    android:background="@drawable/foggy"
+
   >
 
     <com.google.android.youtube.player.YouTubePlayerView
@@ -14,55 +15,75 @@
         android:layout_height="200dp"
         android:layout_marginBottom="-206dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/play_button"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintRight_toLeftOf="parent" />
+        />
 
     <Button
         android:id="@+id/play_button"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="Play"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintRight_toLeftOf="parent" />
-
-    <ImageView
-        android:id="@+id/image_holder1"
-        android:layout_width="222dp"
-        android:layout_height="398dp"
-        app:layout_constraintBottom_toTopOf="@id/youtube_player_view"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:srcCompat="@drawable/serena_image"
-        tools:layout_editor_absoluteY="12dp"
-        android:layout_marginLeft="-411dp"
-        android:layout_marginBottom="-1dp" />
+        android:layout_above="@+id/image_holder2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp" />
 
     <ImageView
         android:id="@+id/image_holder2"
         android:layout_width="186dp"
         android:layout_height="268dp"
-        app:layout_constraintBottom_toTopOf="@+id/youtube_player_view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/image_holder1"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/sherman_image" />
+        app:srcCompat="@drawable/sherman_image"
+        android:layout_marginBottom="73dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
 
     <TextView
         android:id="@+id/ap_text"
-        android:layout_width="186dp"
-        android:layout_height="144dp"
-        android:layout_marginLeft="4dp"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:fontFamily="serif"
-        android:text="Welcome to the    Jungle"
+        android:text="Welcome to the Jungle"
         android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
         android:textSize="33sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/image_holder2"
-        app:layout_constraintLeft_toRightOf="@+id/image_holder1"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.993" />
+        android:textStyle="bold|italic" />
+
+    <ImageView
+        android:id="@+id/image_holder1"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/serena_image"
+        android:layout_alignBottom="@+id/image_holder2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+    <Button
+        android:id="@+id/back_home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/play_button"
+        android:layout_alignBottom="@+id/play_button"
+        android:layout_alignEnd="@+id/image_holder2"
+        android:layout_alignRight="@+id/image_holder2"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="home" />
+
+    <Button
+        android:id="@+id/subscribe_sucess_metric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/play_button"
+        android:layout_alignLeft="@+id/image_holder1"
+        android:layout_alignStart="@+id/image_holder1"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="Subscribe" />
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

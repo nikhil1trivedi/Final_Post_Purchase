@@ -29,7 +29,14 @@
     "timezoneOffset": -420,
     "referrerTimeout": 5,
     "backdateSessionInfo": false,
-    "poi": []
+    "poi": [
+      [
+        "sf_adobe",
+        37.771,
+        -122.24,
+        50
+      ]
+    ]
   },
   "messages": [],
   "remotes": {
