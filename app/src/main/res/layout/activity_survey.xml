@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.trivedi_dell.final_app_post_purchase.Survey">
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="228dp"
+        android:layout_height="87dp"
+        android:text="I am  a male"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="130dp"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="225dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="199dp"
+        android:layout_height="68dp"
+        android:text="I am a female "
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="258dp"
+        android:layout_below="@+id/submit_button"
+        android:layout_alignLeft="@+id/radioButton"
+        android:layout_alignStart="@+id/radioButton"
+        android:layout_marginTop="110dp" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/radioButton2"
+        android:layout_alignEnd="@+id/radioButton2"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="56dp" />
+</RelativeLayout>

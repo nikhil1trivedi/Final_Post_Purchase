@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.trivedi_dell.final_app_post_purchase.subsciption_success"
-    android:background="@drawable/foggy">
+    android:background="@drawable/summer_background">
 
     <TextView
         android:id="@+id/thank_you_string"

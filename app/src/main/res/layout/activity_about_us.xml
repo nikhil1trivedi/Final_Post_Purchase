@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.trivedi_dell.final_app_post_purchase.about_us"
-    android:background="@drawable/foggy">
+    android:background="@drawable/spring_background">
 
     <Button
         android:id="@+id/subscribe_button"

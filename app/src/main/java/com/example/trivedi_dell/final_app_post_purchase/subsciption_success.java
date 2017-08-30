@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class subsciption_success extends AppCompatActivity {
 
+    // this is the final destination of the app, the success page
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +17,8 @@ public class subsciption_success extends AppCompatActivity {
 
         Button back_to_main= (Button) findViewById(R.id.back_to_main_button);
 
+
+        // set the destination of the button to the opening screen
         back_to_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

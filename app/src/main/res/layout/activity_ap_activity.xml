@@ -5,9 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.trivedi_dell.final_app_post_purchase.ap_activity"
-    android:background="@drawable/foggy"
+    android:background="@drawable/winter_background"
 
   >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_player_view"
@@ -37,6 +42,14 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp" />
+    <ImageView
+        android:layout_width="186dp"
+        android:layout_height="268dp"
+        app:srcCompat = "@drawable/serena_image"
+        android:id = "@+id/image_holder1"
+        android:layout_below="@+id/play_button"
+        android:layout_alignLeft="@+id/subscribe_sucess_metric"
+        android:layout_alignStart="@+id/subscribe_sucess_metric" />
 
     <TextView
         android:id="@+id/ap_text"
@@ -50,17 +63,6 @@
         android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
         android:textSize="33sp"
         android:textStyle="bold|italic" />
-
-    <ImageView
-        android:id="@+id/image_holder1"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        app:srcCompat="@drawable/serena_image"
-        android:layout_alignBottom="@+id/image_holder2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
 
     <Button
         android:id="@+id/back_home_button"
@@ -79,8 +81,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/play_button"
-        android:layout_alignLeft="@+id/image_holder1"
-        android:layout_alignStart="@+id/image_holder1"
         android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
         android:text="Subscribe" />

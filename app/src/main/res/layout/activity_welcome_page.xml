@@ -11,38 +11,43 @@
         android:id="@+id/automated_personalization"
         android:layout_width="190dp"
         android:layout_height="53dp"
-        android:layout_marginRight="-434dp"
         android:text="Explore the product"
         app:layout_constraintBottom_toTopOf="@+id/survey_button"
-        app:layout_constraintRight_toLeftOf="parent"
-        tools:layout_editor_absoluteY="410dp" />
+        app:layout_constraintRight_toLeftOf="parent" />
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="454dp"
-        android:layout_height="736dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="parent"
+        android:src="@drawable/background_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:srcCompat="@drawable/sf_background"
-        app:layout_constraintHorizontal_bias="0.508" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="152dp"
-        android:layout_height="101dp"
-        android:layout_marginLeft="-368dp"
-        android:layout_marginTop="-560dp"
+        android:layout_width="171dp"
+        android:layout_height="103dp"
         android:text="  Post     Purchase"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/black"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/about_us_button"
@@ -50,9 +55,7 @@
         android:layout_height="53dp"
         android:text="About Us "
         app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="parent"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="516dp" />
+        app:layout_constraintRight_toLeftOf="parent" />
 
     <Button
         android:id="@+id/survey_button"
@@ -60,9 +63,7 @@
         android:layout_height="53dp"
         android:text="Update Your Profile "
         app:layout_constraintBottom_toTopOf="@+id/about_us_button"
-        app:layout_constraintRight_toLeftOf="parent"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="463dp" />
+        app:layout_constraintRight_toLeftOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

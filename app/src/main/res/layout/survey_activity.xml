@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.trivedi_dell.final_app_post_purchase.survey_activity"
+    android:background="@drawable/black_background">
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:text="Back to Home"
+        tools:layout_editor_absoluteY="458dp"
+        tools:layout_editor_absoluteX="97dp"
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <ImageView
+        android:id="@+id/img2"
+        android:src="@drawable/three_gender_background"
+        android:layout_width="385dp"
+        android:layout_height="275dp"
+        tools:layout_editor_absoluteY="-24dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginTop="46dp"
+        android:layout_alignTop="@+id/txt"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="216dp"
+        android:layout_height="34dp"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="306dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/txt2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/white"
+        android:textStyle="italic"
+        android:textSize="30dp"
+        android:layout_width="365dp"
+        android:layout_height="58dp"
+        android:text="Thanks for answering!"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/img2"
+        android:layout_alignEnd="@+id/img2" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="141dp"
+        android:layout_height="31dp"
+        android:text="Gender:"
+        android:textColor="@android:color/holo_blue_light"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteY="268dp"
+        tools:layout_editor_absoluteX="159dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_below="@+id/img2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+
+</RelativeLayout>
