@@ -1,0 +1,273 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "Gender",
+      "samples": [
+        "update gender to {genders} ",
+        "update gender to {genders} on profile ",
+        "add {genders} to profile "
+      ],
+      "slots": [
+        {
+          "name": "genders",
+          "type": "gender",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "getProductName",
+      "samples": [
+        "I bought a {Purchased_Item} today",
+        "I got a {Purchased_Item}",
+        "{Purchased_Item}",
+        "send {Purchased_Item} to my profile ",
+        "{Purchased_Item} to my profile",
+        "add {Purchased_Item} to my profile"
+      ],
+      "slots": [
+        {
+          "name": "Purchased_Item",
+          "type": "product",
+          "samples": [
+            "I bought a {Purchased_Item}",
+            "a {Purchased_Item}",
+            "{Purchased_Item}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interests",
+      "samples": [
+        "add {interest} to interest in profile",
+        "add {interest} to Post Purchase",
+        "insert  {interest}"
+      ],
+      "slots": [
+        {
+          "name": "interest",
+          "type": "interests",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "Season",
+      "samples": [
+        "it is {seasons} ",
+        "update season to {seasons}",
+        "choose {seasons} for seasons slot",
+        "add {seasons} to profile "
+      ],
+      "slots": [
+        {
+          "name": "seasons",
+          "type": "Season",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "gender",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "male",
+            "synonyms": [
+              "man",
+              "boy"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "female",
+            "synonyms": [
+              "woman",
+              "girl"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "interests",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "basketball",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "football",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "soccer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "fashion",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "music",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "values": [
+        {
+          "id": "product.3",
+          "name": {
+            "value": "Apple",
+            "synonyms": [
+              "Mac",
+              "iPhone",
+              "iPad"
+            ]
+          }
+        },
+        {
+          "id": "product.2",
+          "name": {
+            "value": "Beats",
+            "synonyms": [
+              "Beats by Dre",
+              "headphones"
+            ]
+          }
+        },
+        {
+          "id": "product.1",
+          "name": {
+            "value": "Polo Ralph Lauren",
+            "synonyms": [
+              "Polo"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Season",
+      "values": [
+        {
+          "id": "season.4",
+          "name": {
+            "value": "Fall",
+            "synonyms": []
+          }
+        },
+        {
+          "id": "season.3",
+          "name": {
+            "value": "Spring",
+            "synonyms": []
+          }
+        },
+        {
+          "id": "season.2",
+          "name": {
+            "value": "Summer",
+            "synonyms": []
+          }
+        },
+        {
+          "id": "season.1",
+          "name": {
+            "value": "Winter",
+            "synonyms": [
+              "snow",
+              "cold"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Confirm.Intent-getProductName",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "You purchase a {Purchased_Item} correct?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getProductName.IntentSlot-Purchased_Item",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Have you made any purchases recently? "
+        },
+        {
+          "type": "PlainText",
+          "value": "What did you buy from the store recently?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getProductName",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirm": "Confirm.Intent-getProductName"
+        },
+        "slots": [
+          {
+            "name": "Purchased_Item",
+            "type": "product",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getProductName.IntentSlot-Purchased_Item"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
