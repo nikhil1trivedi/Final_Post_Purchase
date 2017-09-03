@@ -1,0 +1,289 @@
+// Lambda Function for the Alexa Skill of Post Purchase 
+
+var https = require ('https');
+var http = require('http');
+
+exports.handler = function (event, context) {
+    try {
+        console.log("event.session.application.applicationId=" + event.session.application.applicationId);
+
+        if (event.session.new) {
+        console.log("NEW SESSION");
+            
+        }
+
+        if (event.request.type === "LaunchRequest") {
+            console.log("LAUNCH REQUEST");
+            context.succeed(buildResponse(buildSpeechletResponse("Hello Welcome to Post Purchase")));
+                
+        } else if (event.request.type === "IntentRequest") {
+            console.log("INTENT REQUEST");
+            onIntent(event.request,
+                event.session,
+                function callback(sessionAttributes, speechletResponse) {
+                    context.succeed(buildResponse(sessionAttributes, speechletResponse));
+                 
+                }
+                
+        )} else if (event.request.type === "SessionEndedRequest") {
+            console.log("SESSION ENDED REQUEST");
+            context.succeed(buildResponse(buildSpeechletResponse("Goodbye! Thank You for using Post Purchase")))
+        }else if (event.request.type == "AMAZON.StopIntent"){
+            context.succeed();
+        }
+    } catch (e) {
+        context.fail("Exception: " + e);
+    }
+};
+
+
+
+function onIntent(intentRequest,session,callback){
+    
+    var intent = intentRequest.intent;
+    var intentName = intentRequest.intent.name;
+    console.log("ON INTENT");
+    if(intentName== "getProductName"){
+       handleProductName(intent,session,callback);
+    }else if (intentName == "Gender"){
+        handleGender(intent,session,callback);
+    }else if (intentName =="Interests"){
+        handleInterests(intent,session,callback);
+    }else if (intentName == "Season") {
+        handleSeasons(intent,session,callback);
+    }else {
+        throw 'invalid intent'
+    }
+    
+    
+}
+
+
+
+function handleProductName(intent,session,callback){
+    var productName = intent.slots.product.value.toLowerCase();
+    console.log("GOT PRODUCT NAME");
+    
+    if (productName== "Apple") {
+        var speechOutput = "added apple to your recent product";
+        var header = "Apple";
+        console.log("APPLE");
+        var shouldEndSession = true; 
+        //paste the link where the profile is updated 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.product=apple"
+        //launch the get request
+        https.get(request_url);
+        console.log("UPDATED")
+        //callback to build the speech
+        callback(session.attributes,buildSpeechletResponse(header,speechOutput,shouldEndSession));
+            console.log('CALLBACK');
+    }else if (productName== "Beats"){
+        var speechOutput1 = "added beats to your recent products";
+        var header1 = "Beats";
+        console.log("BEATS");
+        var shouldEndSession1 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.product=beats"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header1,speechOutput1,shouldEndSession1));
+            console.log('CALLBACK');
+    }
+    else if (productName == Polo) {  
+        var speechOutput2 = "added polo to your recent products";
+        var repromptText2 = "you said polo correct?";
+        var header2 = "Polo";
+        console.log("POLO");
+        var shouldEndSession2 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.product=polo"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header2,speechOutput2,shouldEndSession2));
+            console.log('CALLBACK');
+    }
+    
+    
+    
+}
+function handleGender(intent,session,callback){
+    var gender_type = intent.slots.genders.value.toLowerCase();
+    console.log("GOT GENDER");
+    if(gender_type== "male"){
+        var speechOutput_male = "setting male as your gender";
+        var header_male= "Male";
+        console.log("MALE");
+        var shouldEndSession_male = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.gender=male"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header_male,speechOutput_male,repromptText_male,shouldEndSession_male));
+            console.log('CALLBACK');
+    }else if (gender_type == "female"){
+         var speechOutput_female = "set female as your gender";
+        var header_female = "Female";
+        console.log("GIRL");
+        var shouldEndSession_female = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.gender=female"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header_female,speechOutput_female,shouldEndSession_female));
+            console.log('CALLBACK');
+    }else {
+        throw "invalid intent"
+    }
+   
+}
+
+function handleInterests(intent,session,callback){
+    var interest = intent.slots.interest.value.toLowerCase();
+    
+    if(interest== "basketball"){
+        var speechOutput = "added basketball as your interest";
+        var repromptText = "you like shooting hoops?";
+        var header = "BASKETBALL";
+        console.log("BASKETBALL");
+        var shouldEndSession = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.interest=basketball"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header,speechOutput,shouldEndSession));
+            console.log('CALLBACK');
+        
+        
+    }else if (interest== "football"){
+        var speechOutput1 = "added football as your interest";
+        var repromptText1 = "you like hitting people?";
+        var header1 = "football";
+        console.log("FOOTBALL");
+        var shouldEndSession1 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.interest=football"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header1,speechOutput1,shouldEndSession1));
+            console.log('CALLBACK');
+        
+    }else if (interest=="soccer"){
+         var speechOutput2 = "added soccer as your interest";
+        var repromptText2 = "you said soccer correct?";
+        var header2 = "Soccer";
+        console.log("SOCCER");
+        var shouldEndSession2 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.interest=soccer"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header2,speechOutput2,shouldEndSession2));
+            console.log('CALLBACK');
+        
+    }else if (interest=="music"){
+         var speechOutput3 = "added music as your interest";
+        var repromptText3 = "you said music correct?";
+        var header3 = "music";
+        console.log("MUSIC");
+        var shouldEndSession3 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.interest=music"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header3,speechOutput3,shouldEndSession3));
+            console.log('CALLBACK');
+    }else if (interest== "fashion"){
+         var speechOutput4 = "added fashion to your recent products";
+        var repromptText4 = "you said fashion correct?"
+        var header4 = "fashion"
+        console.log("FASHION")
+        var shouldEndSession2 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.interest=fashion"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header4,speechOutput4,shouldEndSession4));
+            console.log('CALLBACK');
+        
+    }
+   
+}
+
+function handleSeasons(intent,session,callback){
+    var season = intent.slots.seasons.value.toLowerCase();
+    
+    if(season=="spring"){
+        var speechOutput1 = "set season to spring";
+        var repromptText1 = "you said spring right?"
+        var header1 = "spring";
+        console.log("SPRING");
+        var shouldEndSession1 = true;
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.season=spring"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header1,speechOutput1,shouldEndSession1));
+            console.log('CALLBACK');
+        
+    }else if (season=="fall"){
+        var speechOutput2 = "set season to fall";
+        var repromptText2 = "you said fall correct?"
+        var header2 = "Fall"
+        console.log("FALL")
+        var shouldEndSession2 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.season=fall"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header2,speechOutput2,shouldEndSession2));
+            console.log('CALLBACK');
+    }else if(season=="winter"){
+         var speechOutput3 = "set season to winter";
+        var repromptText3 = "you said winter correct?"
+        var header3 = "winter"
+        console.log("WINTER")
+        var shouldEndSession3 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.season=winter"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header3,speechOutput3,shouldEndSession3));
+            console.log('CALLBACK');
+    }else if (season== "summer"){
+        var speechOutput4 = "set the season to summer";
+        var repromptText4 = "you said summer correct?"
+        var header4 = "summer"
+        console.log("SUMMER")
+        var shouldEndSession2 = true; 
+        var request_url = "https://targetsummitlab.tt.omtrdc.net/m2/targetsummitlab/profile/update?mbox3rdPartyId=visitor_1&profile.season=summer"
+        https.get(request_url);
+        console.log("UPDATED")
+        callback(session.attributes,buildSpeechletResponse(header4,speechOutput4,shouldEndSession4));
+            console.log('CALLBACK');
+    }
+    
+    
+}
+
+
+
+function buildSpeechletResponse(title, output, repromptText, shouldEndSession) {
+    return {
+        outputSpeech: {
+            type: "PlainText",
+            text: output
+        },
+        card: {
+            type: "Simple",
+            title: title,
+            content: output
+        },
+        reprompt: {
+            outputSpeech: {
+                type: "PlainText",
+                text: repromptText
+            }
+        },
+        shouldEndSession: shouldEndSession
+    };
+}
+
+function buildResponse(sessionAttributes,speechletResponse){
+    return{
+        version:"1.0",
+        sessionAttributes:
+            sessionAttributes,
+            response:speechletResponse
+    };
+}
+
+
+
